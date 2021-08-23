@@ -61,7 +61,7 @@ this section will create a node in C++ to communicate with the ROS navigation st
 A shell script named `pick_object.sh` is created that consist of turtlebot launch, AMCL, rviz and the *pick_objects* node. 
 
 ### Adding virtual mark
-to add the sweet to the simulation, a virtual object with markers is created in rviz. The virtual object will represent the object that need to be pickup as the the Turtlebot reached the Pickup destination and also represent the object that being delivered at the Dropof location.
+to add the sweet to the simulation, another node *add_markers* for realizing virtual object with markers is created. The virtual object will represent the object that need to be pickup as the the Turtlebot reached the Pickup destination and also represent the object that being delivered at the Dropof location.
 the algorithm idea are:
 * publish the marker at pickup location
 * paused 5 seconds
@@ -75,6 +75,9 @@ A shell script named `add_markers.sh` is generated consisting of turtlebot, AMCL
 Lastly, by connecting the nodes *pick_objects* and *add_markers*, the robot should be able to simulate a complete simulation of receiving an input goal destination, path planning navigation, virtual marker appear, picking up the virtual marker and send to the second input goal destination. My first idea was to make the node *add_markers* subscribing to the odometry and comunicating with the *pick_objects* node through subscriber and publisher principle. However, I was not able to complete the code program as the *add_markers* node not able to read the publisher massage from the *pick_objects* nodes. 
 
 It is easier to use a `rosparam`that allow me to store a multiple data on the ROS parameter server as `string` value. For example, in the *pick_objects* nodes, when the Turtlebot reach the first destination, the parameter data is stored by using `rosparam set` as string value named *pickup location*. Then in the second node *add_markers* will delete the marker in the map if the current Turtlebot parameter is equal to the string value *pick up location* by using `rosparam get`.
+
+
+![alt text](https://github.com/khalisfadil/RoboND-Home-Service-Robot/blob/main/images/home_service.gif)
 
 ## Conclusion
 
