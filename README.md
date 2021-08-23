@@ -60,7 +60,7 @@ this section will create a node in C++ to communicate with the ROS navigation st
 
 A shell script named `pick_object.sh` is created that consist of turtlebot launch, AMCL, rviz and the *pick_objects* node. 
 
-### Adding virtual mark
+### Adding virtual mark node
 to add the sweet to the simulation, another node *add_markers* for realizing virtual object with markers is created. The virtual object will represent the object that need to be pickup as the the Turtlebot reached the Pickup destination and also represent the object that being delivered at the Dropof location.
 the algorithm idea are:
 * publish the marker at pickup location
