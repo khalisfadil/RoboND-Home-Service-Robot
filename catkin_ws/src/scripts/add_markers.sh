@@ -19,10 +19,8 @@ xterm  -e  " cd $(pwd)/../..;
 source devel/setup.bash; 
 roslaunch turtlebot_rviz_launchers view_navigation.launch " &
 
-sleep 15
+sleep 20
 
 xterm  -e  " cd $(pwd)/../..;
-
 source devel/setup.bash; 
-
 rosrun add_markers add_markers_2 "
